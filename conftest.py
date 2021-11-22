@@ -20,7 +20,6 @@ def browser(request):
     user_language = request.config.getoption("language")
     options = Options()
     options.add_experimental_option('prefs', {'intl.accept_languages': user_language})
-    print("\nstart chrome browser for test..")
     browser = webdriver.Chrome(options=options)
     # if browser_name == "chrome":
     #     options = Options()
@@ -35,5 +34,4 @@ def browser(request):
     # else:
     #     raise pytest.UsageError("--browser_name should be chrome or firefox")
     yield browser
-    print("\nquit browser..")
     browser.quit()
